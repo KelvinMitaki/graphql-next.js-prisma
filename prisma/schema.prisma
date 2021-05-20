@@ -14,10 +14,12 @@ model User {
   id        String   @id @default(uuid())
   createdAt DateTime @default(now())
   updatedAt DateTime
-  email     String
+  email     String   @unique
   password  String
   fullName  String
   posts     Post[]
+
+  @@map("users")
 }
 
 model Post {
@@ -28,4 +30,6 @@ model Post {
   body      String
   user      User     @relation(fields: [authorId], references: [id])
   authorId  String
+
+  @@map("posts")
 }
