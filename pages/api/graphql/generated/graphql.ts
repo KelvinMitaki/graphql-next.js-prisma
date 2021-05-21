@@ -56,8 +56,14 @@ export type Post = {
 export type Query = {
   __typename?: 'Query';
   _?: Maybe<Scalars['Boolean']>;
+  fetchPost: Post;
   fetchPosts: Array<Post>;
   fetchUsers: Array<User>;
+};
+
+
+export type QueryFetchPostArgs = {
+  id: Scalars['String'];
 };
 
 export type User = {

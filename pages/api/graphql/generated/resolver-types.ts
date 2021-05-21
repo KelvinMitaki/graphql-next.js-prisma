@@ -58,8 +58,14 @@ export type Post = {
 export type Query = {
   __typename?: 'Query';
   _?: Maybe<Scalars['Boolean']>;
+  fetchPost: Post;
   fetchPosts: Array<Post>;
   fetchUsers: Array<User>;
+};
+
+
+export type QueryFetchPostArgs = {
+  id: Scalars['String'];
 };
 
 export type User = {
@@ -197,6 +203,7 @@ export type PostResolvers<ContextType = any, ParentType extends ResolversParentT
 
 export type QueryResolvers<ContextType = any, ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query']> = ResolversObject<{
   _?: Resolver<Maybe<ResolversTypes['Boolean']>, ParentType, ContextType>;
+  fetchPost?: Resolver<ResolversTypes['Post'], ParentType, ContextType, RequireFields<QueryFetchPostArgs, 'id'>>;
   fetchPosts?: Resolver<Array<ResolversTypes['Post']>, ParentType, ContextType>;
   fetchUsers?: Resolver<Array<ResolversTypes['User']>, ParentType, ContextType>;
 }>;
