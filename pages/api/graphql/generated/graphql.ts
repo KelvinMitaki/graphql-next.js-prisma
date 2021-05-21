@@ -13,6 +13,12 @@ export type Scalars = {
   DateTime: any;
 };
 
+export type CreatePostInput = {
+  title: Scalars['String'];
+  body: Scalars['String'];
+  user: Scalars['String'];
+};
+
 export type CreateUserInput = {
   email: Scalars['String'];
   password: Scalars['String'];
@@ -23,7 +29,13 @@ export type CreateUserInput = {
 export type Mutation = {
   __typename?: 'Mutation';
   _?: Maybe<Scalars['Boolean']>;
+  createPost: Post;
   createUser: User;
+};
+
+
+export type MutationCreatePostArgs = {
+  values: CreatePostInput;
 };
 
 
@@ -44,6 +56,7 @@ export type Post = {
 export type Query = {
   __typename?: 'Query';
   _?: Maybe<Scalars['Boolean']>;
+  fetchPosts: Array<Post>;
   fetchUsers: Array<User>;
 };
 

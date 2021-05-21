@@ -15,6 +15,12 @@ export type Scalars = {
   DateTime: any;
 };
 
+export type CreatePostInput = {
+  title: Scalars['String'];
+  body: Scalars['String'];
+  user: Scalars['String'];
+};
+
 export type CreateUserInput = {
   email: Scalars['String'];
   password: Scalars['String'];
@@ -25,7 +31,13 @@ export type CreateUserInput = {
 export type Mutation = {
   __typename?: 'Mutation';
   _?: Maybe<Scalars['Boolean']>;
+  createPost: Post;
   createUser: User;
+};
+
+
+export type MutationCreatePostArgs = {
+  values: CreatePostInput;
 };
 
 
@@ -46,6 +58,7 @@ export type Post = {
 export type Query = {
   __typename?: 'Query';
   _?: Maybe<Scalars['Boolean']>;
+  fetchPosts: Array<Post>;
   fetchUsers: Array<User>;
 };
 
@@ -138,8 +151,9 @@ export type DirectiveResolverFn<TResult = {}, TParent = {}, TContext = {}, TArgs
 
 /** Mapping between all available schema types and the resolvers types */
 export type ResolversTypes = ResolversObject<{
-  CreateUserInput: CreateUserInput;
+  CreatePostInput: CreatePostInput;
   String: ResolverTypeWrapper<Scalars['String']>;
+  CreateUserInput: CreateUserInput;
   DateTime: ResolverTypeWrapper<Scalars['DateTime']>;
   Mutation: ResolverTypeWrapper<{}>;
   Boolean: ResolverTypeWrapper<Scalars['Boolean']>;
@@ -150,8 +164,9 @@ export type ResolversTypes = ResolversObject<{
 
 /** Mapping between all available schema types and the resolvers parents */
 export type ResolversParentTypes = ResolversObject<{
-  CreateUserInput: CreateUserInput;
+  CreatePostInput: CreatePostInput;
   String: Scalars['String'];
+  CreateUserInput: CreateUserInput;
   DateTime: Scalars['DateTime'];
   Mutation: {};
   Boolean: Scalars['Boolean'];
@@ -166,6 +181,7 @@ export interface DateTimeScalarConfig extends GraphQLScalarTypeConfig<ResolversT
 
 export type MutationResolvers<ContextType = any, ParentType extends ResolversParentTypes['Mutation'] = ResolversParentTypes['Mutation']> = ResolversObject<{
   _?: Resolver<Maybe<ResolversTypes['Boolean']>, ParentType, ContextType>;
+  createPost?: Resolver<ResolversTypes['Post'], ParentType, ContextType, RequireFields<MutationCreatePostArgs, 'values'>>;
   createUser?: Resolver<ResolversTypes['User'], ParentType, ContextType, RequireFields<MutationCreateUserArgs, 'values'>>;
 }>;
 
@@ -181,6 +197,7 @@ export type PostResolvers<ContextType = any, ParentType extends ResolversParentT
 
 export type QueryResolvers<ContextType = any, ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query']> = ResolversObject<{
   _?: Resolver<Maybe<ResolversTypes['Boolean']>, ParentType, ContextType>;
+  fetchPosts?: Resolver<Array<ResolversTypes['Post']>, ParentType, ContextType>;
   fetchUsers?: Resolver<Array<ResolversTypes['User']>, ParentType, ContextType>;
 }>;
 
