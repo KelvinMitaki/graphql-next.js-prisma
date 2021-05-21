@@ -1,10 +1,18 @@
 import { PrismaClient } from "@prisma/client";
-import { ApolloServer } from "apollo-server-micro";
+import { ApolloServer, makeExecutableSchema } from "apollo-server-micro";
 import {} from "graphql-shield";
+import { ContextType } from "../../../src/types/general";
+import { resolvers, typeDefs } from "./resolvers";
 
 const prisma = new PrismaClient();
-
-const apolloServer = new ApolloServer({});
+const schema = makeExecutableSchema({ typeDefs, resolvers });
+const apolloServer = new ApolloServer({
+  schema,
+  context(ctx: ContextType) {
+    ctx.prisma = prisma;
+    return ctx;
+  }
+});
 
 export const config = {
   api: {
