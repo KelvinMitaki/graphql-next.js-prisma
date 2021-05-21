@@ -1,6 +1,9 @@
 import React from "react";
 import styled, { css } from "styled-components";
 
+interface Props {
+  variant: "primary" | "secondary" | "success" | "danger";
+}
 const Container = styled.div`
   text-align: center;
 `;
@@ -28,10 +31,6 @@ const Button = styled.button<Props>`
     return css({ backgroundColor });
   }}
 `;
-
-interface Props {
-  variant: "primary" | "secondary" | "success" | "danger";
-}
 
 const ButtonComponent: React.FC<Props> = ({ children, variant }) => {
   return (
