@@ -12,14 +12,21 @@ export type Scalars = {
   Float: number;
 };
 
+export type CreateUserInput = {
+  email: Scalars['String'];
+  password: Scalars['String'];
+  fullName: Scalars['String'];
+};
+
 export type Mutation = {
   __typename?: 'Mutation';
-  registerUser: User;
+  _?: Maybe<Scalars['Boolean']>;
+  createUser: User;
 };
 
 
-export type MutationRegisterUserArgs = {
-  values: RegisterUserInput;
+export type MutationCreateUserArgs = {
+  values: CreateUserInput;
 };
 
 export type Post = {
@@ -34,13 +41,8 @@ export type Post = {
 
 export type Query = {
   __typename?: 'Query';
+  _?: Maybe<Scalars['Boolean']>;
   fetchUsers: Array<User>;
-};
-
-export type RegisterUserInput = {
-  email: Scalars['String'];
-  password: Scalars['String'];
-  fullName: Scalars['String'];
 };
 
 export type User = {

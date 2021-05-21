@@ -2,7 +2,7 @@ extend type Query {
   fetchUsers: [User!]!
 }
 extend type Mutation {
-  registerUser(values: RegisterUserInput!): User!
+  createUser(values: CreateUserInput!): User!
 }
 
 type User {
@@ -23,7 +23,7 @@ type Post {
   user: User!
 }
 
-input RegisterUserInput {
+input CreateUserInput {
   email: String!
   password: String!
   fullName: String!
