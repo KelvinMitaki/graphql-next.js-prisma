@@ -6,6 +6,10 @@ interface Props {
 }
 
 const Input = styled.input<Props>`
+  padding: 15px;
+  border-radius: 5px;
+  border: 1px solid grey;
+  outline: none;
   ${props => {
     const { inpSize } = props;
     let width;
@@ -22,8 +26,8 @@ const Input = styled.input<Props>`
   }}
 `;
 
-const InputComponent: React.FC<Props> = ({ inpSize, children }) => {
-  return <Input inpSize={inpSize}>{children}</Input>;
+const InputComponent: React.FC<Props> = ({ inpSize }) => {
+  return <Input inpSize={inpSize} />;
 };
 
 export default InputComponent;
