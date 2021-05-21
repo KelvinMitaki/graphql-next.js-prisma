@@ -13,7 +13,7 @@ generator client {
 model User {
   id        String   @id @default(uuid())
   createdAt DateTime @default(now())
-  updatedAt DateTime
+  updatedAt DateTime @updatedAt
   email     String   @unique
   password  String
   fullName  String
@@ -25,7 +25,7 @@ model User {
 model Post {
   id        String   @id @default(uuid())
   createdAt DateTime @default(now())
-  updatedAt DateTime
+  updatedAt DateTime @updatedAt
   title     String
   body      String
   user      User     @relation(fields: [authorId], references: [id])
