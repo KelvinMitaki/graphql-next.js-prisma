@@ -1,5 +1,5 @@
 extend type Query {
-  fetchUsers: [User!]!
+  Users: [User!]!
 }
 extend type Mutation {
   createUser(values: CreateUserInput!): User!

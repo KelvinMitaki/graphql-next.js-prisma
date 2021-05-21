@@ -1,6 +1,6 @@
 extend type Query {
-  fetchPosts: [Post!]!
-  fetchPost(id: String!): Post!
+  Posts: [Post!]!
+  Post(id: ID!): Post!
 }
 extend type Mutation {
   createPost(values: CreatePostInput!): Post!

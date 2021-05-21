@@ -1,3 +1,3 @@
 export * as userSchema from "./schema.graphql";
-export { createUser } from "./createUser";
-export { fetchUsers } from "./fetchUsers";
+export { createUser } from "./User";
+export { fetchUsers } from "./Users";

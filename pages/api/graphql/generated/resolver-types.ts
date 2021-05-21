@@ -57,15 +57,15 @@ export type Post = {
 
 export type Query = {
   __typename?: 'Query';
+  Post: Post;
+  Posts: Array<Post>;
+  Users: Array<User>;
   _?: Maybe<Scalars['Boolean']>;
-  fetchPost: Post;
-  fetchPosts: Array<Post>;
-  fetchUsers: Array<User>;
 };
 
 
-export type QueryFetchPostArgs = {
-  id: Scalars['String'];
+export type QueryPostArgs = {
+  id: Scalars['ID'];
 };
 
 export type User = {
@@ -165,6 +165,7 @@ export type ResolversTypes = ResolversObject<{
   Boolean: ResolverTypeWrapper<Scalars['Boolean']>;
   Post: ResolverTypeWrapper<Post>;
   Query: ResolverTypeWrapper<{}>;
+  ID: ResolverTypeWrapper<Scalars['ID']>;
   User: ResolverTypeWrapper<User>;
 }>;
 
@@ -178,6 +179,7 @@ export type ResolversParentTypes = ResolversObject<{
   Boolean: Scalars['Boolean'];
   Post: Post;
   Query: {};
+  ID: Scalars['ID'];
   User: User;
 }>;
 
@@ -202,10 +204,10 @@ export type PostResolvers<ContextType = any, ParentType extends ResolversParentT
 }>;
 
 export type QueryResolvers<ContextType = any, ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query']> = ResolversObject<{
+  Post?: Resolver<ResolversTypes['Post'], ParentType, ContextType, RequireFields<QueryPostArgs, 'id'>>;
+  Posts?: Resolver<Array<ResolversTypes['Post']>, ParentType, ContextType>;
+  Users?: Resolver<Array<ResolversTypes['User']>, ParentType, ContextType>;
   _?: Resolver<Maybe<ResolversTypes['Boolean']>, ParentType, ContextType>;
-  fetchPost?: Resolver<ResolversTypes['Post'], ParentType, ContextType, RequireFields<QueryFetchPostArgs, 'id'>>;
-  fetchPosts?: Resolver<Array<ResolversTypes['Post']>, ParentType, ContextType>;
-  fetchUsers?: Resolver<Array<ResolversTypes['User']>, ParentType, ContextType>;
 }>;
 
 export type UserResolvers<ContextType = any, ParentType extends ResolversParentTypes['User'] = ResolversParentTypes['User']> = ResolversObject<{

@@ -18,8 +18,6 @@ model User {
   password  String
   fullName  String
   Posts     Post[]
-
-  @@map("users")
 }
 
 model Post {
@@ -30,6 +28,4 @@ model Post {
   body      String
   User      User     @relation(fields: [authorId], references: [id])
   authorId  String
-
-  @@map("posts")
 }
