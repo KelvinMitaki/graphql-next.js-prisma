@@ -7,8 +7,8 @@ extend type Mutation {
 
 type User {
   id: String!
-  createdAt: DateTime!
-  updatedAt: DateTime!
+  createdAt: String!
+  updatedAt: String!
   email: String!
   password: String!
   fullName: String!
@@ -16,8 +16,8 @@ type User {
 
 type Post {
   id: String!
-  createdAt: DateTime!
-  updatedAt: DateTime!
+  createdAt: String!
+  updatedAt: String!
   title: String!
   body: String!
   user: User!
