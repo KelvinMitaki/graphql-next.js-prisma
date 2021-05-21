@@ -10,6 +10,7 @@ export type Scalars = {
   Boolean: boolean;
   Int: number;
   Float: number;
+  DateTime: any;
 };
 
 export type CreateUserInput = {
@@ -17,6 +18,7 @@ export type CreateUserInput = {
   password: Scalars['String'];
   fullName: Scalars['String'];
 };
+
 
 export type Mutation = {
   __typename?: 'Mutation';
@@ -32,8 +34,8 @@ export type MutationCreateUserArgs = {
 export type Post = {
   __typename?: 'Post';
   id: Scalars['String'];
-  createdAt: Scalars['String'];
-  updatedAt: Scalars['String'];
+  createdAt: Scalars['DateTime'];
+  updatedAt: Scalars['DateTime'];
   title: Scalars['String'];
   body: Scalars['String'];
   user: User;
@@ -48,8 +50,8 @@ export type Query = {
 export type User = {
   __typename?: 'User';
   id: Scalars['String'];
-  createdAt: Scalars['String'];
-  updatedAt: Scalars['String'];
+  createdAt: Scalars['DateTime'];
+  updatedAt: Scalars['DateTime'];
   email: Scalars['String'];
   password: Scalars['String'];
   fullName: Scalars['String'];
