@@ -48,6 +48,10 @@
     "@graphql-codegen/cli": "^1.21.4",
     "@graphql-codegen/introspection": "^1.18.2",
     "@graphql-codegen/typescript": "^1.22.0",
-    "@graphql-codegen/typescript-resolvers": "^1.19.1"
+    "@graphql-codegen/typescript-resolvers": "^1.19.1",
+    "babel-loader": "^8.2.2",
+    "babel-plugin-import-graphql": "^2.8.1",
+    "babel-plugin-macros": "^3.1.0",
+    "babel-plugin-styled-components": "^1.12.0"
   }
 }

@@ -1,5 +1,6 @@
 import { PrismaClient } from "@prisma/client";
-import { ApolloServer, makeExecutableSchema } from "apollo-server-micro";
+import { ApolloServer } from "apollo-server-micro";
+import { makeExecutableSchema } from "graphql-tools";
 import {} from "graphql-shield";
 import { ContextType } from "../../../src/types/general";
 import { resolvers, typeDefs } from "./resolvers";
