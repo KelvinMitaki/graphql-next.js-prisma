@@ -1,11 +1,11 @@
 import React from "react";
 import styled, { css } from "styled-components";
 
-interface Props {
+export interface InputProps {
   inpSize: "small" | "medium" | "large";
 }
 
-const Input = styled.input<Props>`
+const Input = styled.input<InputProps>`
   padding: 15px;
   border-radius: 5px;
   border: 1px solid grey;
@@ -26,7 +26,7 @@ const Input = styled.input<Props>`
   }}
 `;
 
-const InputComponent: React.FC<Props> = ({ inpSize }) => {
+const InputComponent: React.FC<InputProps> = ({ inpSize }) => {
   return <Input inpSize={inpSize} />;
 };
 

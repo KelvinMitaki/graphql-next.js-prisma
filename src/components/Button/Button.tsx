@@ -1,10 +1,11 @@
 import React from "react";
 import styled, { css } from "styled-components";
 
-interface Props {
+export interface ButtonProps {
   variant: "primary" | "secondary" | "success" | "danger";
+  children: React.ReactNode;
 }
-const Button = styled.button<Props>`
+const Button = styled.button<ButtonProps>`
   border: none;
   border-radius: 5px;
   padding: 20px;
@@ -29,7 +30,7 @@ const Button = styled.button<Props>`
   }}
 `;
 
-const ButtonComponent: React.FC<Props> = ({ children, variant }) => {
+const ButtonComponent: React.FC<ButtonProps> = ({ children, variant }) => {
   return <Button variant={variant}>{children}</Button>;
 };
 

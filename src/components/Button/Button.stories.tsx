@@ -1,14 +1,30 @@
+import { Story } from "@storybook/react";
 import React from "react";
-import ButtonComponent from "./Button";
+import ButtonComponent, { ButtonProps } from "./Button";
 
 export default {
   title: "Button",
   component: ButtonComponent
 };
 
-export const Primary = () => <ButtonComponent variant="primary">Primary Button</ButtonComponent>;
-export const Secondary = () => (
-  <ButtonComponent variant="secondary">Secondary Button</ButtonComponent>
-);
-export const Success = () => <ButtonComponent variant="success">Success Button</ButtonComponent>;
-export const Danger = () => <ButtonComponent variant="danger">Danger Button</ButtonComponent>;
+const Template = args => <ButtonComponent {...args} />;
+export const Primary: Story<ButtonProps> = Template.bind({});
+Primary.args = {
+  variant: "primary",
+  children: "Primary Button"
+};
+export const Secondary: Story<ButtonProps> = Template.bind({});
+Secondary.args = {
+  variant: "secondary",
+  children: "Secondary Button"
+};
+export const Success: Story<ButtonProps> = Template.bind({});
+Success.args = {
+  variant: "success",
+  children: "Success Button"
+};
+export const Danger: Story<ButtonProps> = Template.bind({});
+Danger.args = {
+  variant: "danger",
+  children: "Danger Button"
+};
