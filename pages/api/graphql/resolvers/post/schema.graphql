@@ -1,0 +1,19 @@
+extend type Query {
+  fetchPosts: [Post!]!
+}
+extend type Mutation {
+  createPost(values: CreatePostInput!): Post!
+}
+type Post {
+  id: String!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  title: String!
+  body: String!
+  user: User!
+}
+input CreatePostInput {
+  title: String!
+  body: String!
+  user: String!
+}

@@ -1,0 +1,3 @@
+export * as postSchema from "./schema.graphql";
+export { createPost } from "./createPost";
+export { fetchPosts } from "./fetchPosts";

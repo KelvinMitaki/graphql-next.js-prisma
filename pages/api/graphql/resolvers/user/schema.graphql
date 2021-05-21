@@ -1,10 +1,8 @@
 extend type Query {
   fetchUsers: [User!]!
-  fetchPosts: [Post!]!
 }
 extend type Mutation {
   createUser(values: CreateUserInput!): User!
-  createPost(values: CreatePostInput!): Post!
 }
 
 type User {
@@ -15,24 +13,8 @@ type User {
   password: String!
   fullName: String!
 }
-
-type Post {
-  id: String!
-  createdAt: DateTime!
-  updatedAt: DateTime!
-  title: String!
-  body: String!
-  user: User!
-}
-
 input CreateUserInput {
   email: String!
   password: String!
   fullName: String!
-}
-
-input CreatePostInput {
-  title: String!
-  body: String!
-  user: String!
 }
