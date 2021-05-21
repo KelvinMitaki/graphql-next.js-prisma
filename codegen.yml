@@ -1,0 +1,16 @@
+overwrite: true
+schema: "pages/api/graphql/resolvers/**/*.graphql"
+generates:
+    pages/api/graphql/generated/resolver-types.ts:
+        config:
+            useIndexSignature: true
+        plugins:
+            - add:
+                content: '/* eslint-disable */'
+            - typescript
+            - typescript-resolvers  
+    pages/api/graphql/generated/graphql.ts:
+        plugins:
+          - add:
+              content: '/* eslint-disable */'
+          - 'typescript'          
