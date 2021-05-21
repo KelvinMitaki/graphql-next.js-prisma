@@ -1,11 +1,11 @@
-import { Story } from "@storybook/react";
+import { Meta, Story } from "@storybook/react";
 import React from "react";
 import InputComponent, { InputProps } from "./Input";
 
 export default {
   title: "Input",
   component: InputComponent
-};
+} as Meta;
 
 const Template = args => <InputComponent {...args} />;
 
