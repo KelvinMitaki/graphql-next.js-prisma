@@ -6,7 +6,7 @@ export const fetchPost = (_, { id }: QueryFetchPostArgs, { prisma }: ContextType
       id
     },
     include: {
-      user: true
+      User: true
     }
   });
 };

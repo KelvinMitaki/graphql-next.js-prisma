@@ -11,10 +11,10 @@ type Post {
   updatedAt: DateTime!
   title: String!
   body: String!
-  user: User!
+  User: User!
 }
 input CreatePostInput {
   title: String!
   body: String!
-  user: String!
+  User: String!
 }

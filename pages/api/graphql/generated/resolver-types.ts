@@ -18,7 +18,7 @@ export type Scalars = {
 export type CreatePostInput = {
   title: Scalars['String'];
   body: Scalars['String'];
-  user: Scalars['String'];
+  User: Scalars['String'];
 };
 
 export type CreateUserInput = {
@@ -52,7 +52,7 @@ export type Post = {
   updatedAt: Scalars['DateTime'];
   title: Scalars['String'];
   body: Scalars['String'];
-  user: User;
+  User: User;
 };
 
 export type Query = {
@@ -197,7 +197,7 @@ export type PostResolvers<ContextType = any, ParentType extends ResolversParentT
   updatedAt?: Resolver<ResolversTypes['DateTime'], ParentType, ContextType>;
   title?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   body?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  user?: Resolver<ResolversTypes['User'], ParentType, ContextType>;
+  User?: Resolver<ResolversTypes['User'], ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 }>;
 

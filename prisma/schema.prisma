@@ -17,7 +17,7 @@ model User {
   email     String   @unique
   password  String
   fullName  String
-  posts     Post[]
+  Posts     Post[]
 
   @@map("users")
 }
@@ -28,7 +28,7 @@ model Post {
   updatedAt DateTime @updatedAt
   title     String
   body      String
-  user      User     @relation(fields: [authorId], references: [id])
+  User      User     @relation(fields: [authorId], references: [id])
   authorId  String
 
   @@map("posts")

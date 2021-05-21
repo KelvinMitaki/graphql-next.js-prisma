@@ -16,7 +16,7 @@ export type Scalars = {
 export type CreatePostInput = {
   title: Scalars['String'];
   body: Scalars['String'];
-  user: Scalars['String'];
+  User: Scalars['String'];
 };
 
 export type CreateUserInput = {
@@ -50,7 +50,7 @@ export type Post = {
   updatedAt: Scalars['DateTime'];
   title: Scalars['String'];
   body: Scalars['String'];
-  user: User;
+  User: User;
 };
 
 export type Query = {
