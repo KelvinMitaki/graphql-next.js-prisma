@@ -4,9 +4,6 @@ import styled, { css } from "styled-components";
 interface Props {
   variant: "primary" | "secondary" | "success" | "danger";
 }
-const Container = styled.div`
-  text-align: center;
-`;
 const Button = styled.button<Props>`
   border: none;
   border-radius: 5px;
@@ -33,11 +30,7 @@ const Button = styled.button<Props>`
 `;
 
 const ButtonComponent: React.FC<Props> = ({ children, variant }) => {
-  return (
-    <Container>
-      <Button variant={variant}>{children}</Button>
-    </Container>
-  );
+  return <Button variant={variant}>{children}</Button>;
 };
 
 export default ButtonComponent;
