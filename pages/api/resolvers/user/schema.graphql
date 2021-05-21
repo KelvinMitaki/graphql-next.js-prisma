@@ -1,0 +1,30 @@
+extend type Query {
+  fetchUsers: [User!]!
+}
+extend type Mutation {
+  registerUser(values: RegisterUserInput!): User!
+}
+
+type User {
+  id: String!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  email: String!
+  password: String!
+  fullName: String!
+}
+
+type Post {
+  id: String!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  title: String!
+  body: String!
+  user: User!
+}
+
+input RegisterUserInput {
+  email: String!
+  password: String!
+  fullName: String!
+}
