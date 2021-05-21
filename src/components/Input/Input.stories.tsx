@@ -1,11 +1,23 @@
+import { Story } from "@storybook/react";
 import React from "react";
-import InputComponent from "./Input";
+import InputComponent, { InputProps } from "./Input";
 
 export default {
   title: "Input",
   component: InputComponent
 };
 
-export const Small = () => <InputComponent inpSize="small" />;
-export const Medium = () => <InputComponent inpSize="medium" />;
-export const Large = () => <InputComponent inpSize="large" />;
+const Template = args => <InputComponent {...args} />;
+
+export const Small: Story<InputProps> = Template.bind({});
+Small.args = {
+  inpSize: "small"
+};
+export const Medium: Story<InputProps> = Template.bind({});
+Medium.args = {
+  inpSize: "medium"
+};
+export const Large: Story<InputProps> = Template.bind({});
+Large.args = {
+  inpSize: "large"
+};
