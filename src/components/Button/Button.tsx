@@ -6,7 +6,7 @@ export interface ButtonProps {
   variant: "primary" | "secondary" | "success" | "danger";
   children: React.ReactNode;
 }
-const Button = styled.button<ButtonProps>`
+export const Button = styled.button<ButtonProps>`
   border: none;
   border-radius: 5px;
   padding: 20px;
@@ -35,7 +35,8 @@ const Button = styled.button<ButtonProps>`
 
 const ButtonComponent: React.FC<ButtonProps> = ({ children, variant, ...props }) => {
   return (
-    <Button variant={variant} {...props}>
+    // @ts-ignore
+    <Button variant={variant} {...props} color="red" bg="blue">
       {children}
     </Button>
   );
