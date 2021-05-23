@@ -13,7 +13,10 @@ export const Button = styled.button<ButtonProps>`
   :hover {
     cursor: pointer;
   }
-  ${color}/* ${({ variant, ...props }) => {
+  ${color}
+  ${space}
+  ${layout}
+  ${typography} /* ${({ variant, ...props }) => {
     // @ts-ignore
     console.log(props.bg);
     let backgroundColor;
@@ -36,7 +39,7 @@ export const Button = styled.button<ButtonProps>`
 const ButtonComponent: React.FC<ButtonProps> = ({ children, variant, ...props }) => {
   return (
     // @ts-ignore
-    <Button variant={variant} {...props} color="red" bg="blue">
+    <Button variant={variant} {...props} color="red" bg="blue" m="1">
       {children}
     </Button>
   );
