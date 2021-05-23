@@ -1,5 +1,6 @@
 import React from "react";
 import styled, { css } from "styled-components";
+import { color, space, typography, layout } from "styled-system";
 
 export interface ButtonProps {
   variant: "primary" | "secondary" | "success" | "danger";
@@ -12,7 +13,9 @@ const Button = styled.button<ButtonProps>`
   :hover {
     cursor: pointer;
   }
-  ${({ variant }) => {
+  ${color}/* ${({ variant, ...props }) => {
+    // @ts-ignore
+    console.log(props.bg);
     let backgroundColor;
     if (variant === "primary") {
       backgroundColor = "blue";
@@ -27,11 +30,15 @@ const Button = styled.button<ButtonProps>`
       backgroundColor = "red";
     }
     return css({ backgroundColor });
-  }}
+  }} */
 `;
 
-const ButtonComponent: React.FC<ButtonProps> = ({ children, variant }) => {
-  return <Button variant={variant}>{children}</Button>;
+const ButtonComponent: React.FC<ButtonProps> = ({ children, variant, ...props }) => {
+  return (
+    <Button variant={variant} {...props}>
+      {children}
+    </Button>
+  );
 };
 
 export default ButtonComponent;
